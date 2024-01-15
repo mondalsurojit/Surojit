@@ -1,0 +1,113 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+    transition: all .2s ease-out;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    /* cursor: default; */
+    user-select: text;
+}
+
+::selection {
+    color: #1900fd;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    /* -webkit-font-smoothing: antialiased; */
+}
+
+body::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgb(63, 61, 86);
+    border-radius: 5rem;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(38, 37, 52);
+}
+
+#preloader {
+    position: fixed;
+    display: block;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: none;
+    background-attachment: fixed;
+    background: #000 url(../images/preloader.gif) no-repeat center center;
+    transition: transform 0.5s ease-out;
+}
+
+
+
+/* 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++⚙️👇COMPONENTS👇⚙️++++++++++++++++++++++++++++++++++++++++++++++++++++++
+_______________________________________________________________________________________________________________________________*/
+
+
+
+@keyframes glitch {
+    0% {
+        transform: translate(0 0);
+        filter: hue-rotate(0deg);
+    }
+
+    10% {
+        transform: translate(5px, 0px);
+    }
+
+    20% {
+        transform: translate(-5px, -5px);
+    }
+
+    30% {
+        transform: translate(15px, 0px);
+    }
+
+    40% {
+        transform: translate(5px, 0px);
+    }
+
+    50% {
+        transform: translate(-25x, 0px);
+    }
+
+    60% {
+        transform: translate(-50px, 0px);
+    }
+
+    70% {
+        transform: translate(0px, -20px);
+    }
+
+    80% {
+        transform: translate(-60px, -20px);
+    }
+
+    81% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(0 0);
+        filter: hue-rotate(360deg);
+    }
+}
