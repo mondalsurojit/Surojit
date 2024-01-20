@@ -493,17 +493,17 @@ ________________________________________________________________________________
     mix-blend-mode: darken;
 }
 
-#ed-img1 {
+.ed-img1 {
     background: url(../images/icse.jpg) no-repeat center center;
     background-size: contain;
 }
 
-#ed-img2 {
+.ed-img2 {
     background: url(../images/isc.jpg) no-repeat center center;
     background-size: contain;
 }
 
-#ed-img3 {
+.ed-img3 {
     background: url(../images/btech.png) no-repeat center center;
     background-size: contain;
 }

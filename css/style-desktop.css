@@ -41,7 +41,9 @@ header {
 }
 
 @media (hover:hover) {
-    .nav li a:hover {
+
+    .nav li a:hover,
+    .nav li a:focus {
         background-color: rgba(226, 226, 241, 0.425);
         cursor: pointer;
     }
@@ -226,7 +228,8 @@ dialog {
     /* transform-style: preserve-3d; */
 }
 
-dialog p {
+dialog button {
+    background-color: transparent;
     font-size: 35px;
     cursor: pointer;
     position: absolute;
@@ -310,7 +313,9 @@ dialog p {
 }
 
 @media (hover:hover) {
-    .button-on-home button:hover {
+
+    .button-on-home button:hover,
+    .button-on-home button:focus {
         box-shadow: 3px 3px 2px #514A9D;
         background-image: linear-gradient(-45deg, #3FA9E8, #6D7BCC, #478ff9, #6D7BCC);
         background-size: 500%;
@@ -328,8 +333,7 @@ dialog p {
     }
 }
 
-.button-on-home button:active,
-.button-on-home button:focus {
+.button-on-home button:active {
     transform: scale(0.96);
 }
 
@@ -464,7 +468,9 @@ ________________________________________________________________________________
 }
 
 @media (hover:hover) {
-    .photo-prop:hover {
+
+    .photo-prop:hover,
+    .photo-prop:focus {
         background-size: 102%;
     }
 }
@@ -532,7 +538,9 @@ ________________________________________________________________________________
 }
 
 @media (hover:hover) {
-    .ed-card:hover {
+
+    .ed-card:hover,
+    .ed-card:focus {
         box-shadow: 2px 2px 3px #00308a5e;
     }
 }
@@ -557,21 +565,19 @@ ________________________________________________________________________________
     width: 100%;
     margin-top: 2vh;
     mix-blend-mode: darken;
+    background-size: contain !important;
 }
 
-#ed-img1 {
+.ed-img1 {
     background: url(../images/icse.jpg) no-repeat center center;
-    background-size: contain;
 }
 
-#ed-img2 {
+.ed-img2 {
     background: url(../images/isc.jpg) no-repeat center center;
-    background-size: contain;
 }
 
-#ed-img3 {
+.ed-img3 {
     background: url(../images/btech.png) no-repeat center center;
-    background-size: contain;
 }
 
 .ed-heading {

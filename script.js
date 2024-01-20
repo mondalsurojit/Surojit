@@ -135,7 +135,7 @@ document.querySelector(".profile-photo").addEventListener("click", () => {
     html.style.position = "fixed";
     html.style.overflowY = "scroll";
 
-    document.querySelector("dialog p").addEventListener("click", () => {
+    document.querySelector("dialog button").addEventListener("click", () => {
         dialog.close();
         dialogBg.style.display = "none";
         html.style.position = "static";
