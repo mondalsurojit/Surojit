@@ -328,7 +328,8 @@ dialog p {
     }
 }
 
-.button-on-home button:active {
+.button-on-home button:active,
+.button-on-home button:focus {
     transform: scale(0.96);
 }
 
