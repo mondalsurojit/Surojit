@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <!-- <html lang="en" oncontextmenu="return false;"> -->
-  <html lang="en">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surojit - Web Developer Portfolio</title>
+  <meta name="description" content="Explore the portfolio of Surojit, a skilled web developer showcasing projects and skills in web development.">
+  <meta name="keywords" content="web development, portfolio, Surojit, projects, skills">
+  <!-- <link rel="canonical" href="https://www.yourportfolio.com"> -->
+  
+  <meta property="og:title" content="Surojit - Web Developer Portfolio">
+  <meta property="og:description" content="Explore the portfolio of Surojit, a skilled web developer showcasing projects and skills in web development.">
+  <!-- <meta property="og:image" content="https://www.yourportfolio.com/images/preview-image.jpg">
+  <meta property="og:url" content="https://www.yourportfolio.com"> -->
+  
+  <!-- <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@yourTwitterHandle">
+  <meta name="twitter:title" content="Surojit - Web Developer Portfolio">
+  <meta name="twitter:description" content="Explore the portfolio of Surojit, a skilled web developer showcasing projects and skills in web development.">
+  <meta name="twitter:image" content="https://www.yourportfolio.com/images/preview-image.jpg"> -->
+
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/style-mobile.css" media="(max-width: 875px)">
   <link rel="stylesheet" href="css/style-desktop.css" media="(min-width:876px)">
+  <img src="../images/noise.svg" alt="Preloaded Image" style="display: none;">
+  <!-- <link rel="preload" href="../images/noise.svg" as="image"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <script src="https://kit.fontawesome.com/266833c2f6.js" crossorigin="anonymous" defer></script>
   <script src="script.js" defer></script>
-  <title>Surojit</title>
 </head>
 
 <body>
@@ -46,8 +63,8 @@ ________________________________________________________________________________
         <a href="#contact">Contact</a>
       </li>
     </ul>
-    <p class="hamburger-icon">≡</p>
-    <p class="x-icon">×</p>
+    <button class="hamburger-icon">≡</button>
+    <button class="x-icon">×</button>
   </header>
 
 
@@ -65,23 +82,31 @@ ________________________________________________________________________________
       <div class="circle1"></div>
       <div class="circle2"></div>
       <div class="container"></div>
-      <button class="profile-photo"></button>
-      <div id="dialog-bg"></div>
-      <dialog>
+      <button class="profile-photo" aria-label="Profile Photo"></button>
+      <div class="dialog-bg"></div>
+      <dialog id="profile-story">
         <button>×</button>
       </dialog>
-      <h3 id="hi2">Surojit Mondal</h3>
-      <div class="button-on-home">
-        <button id="contactme">CONTACT ME</button><button id="seemyresume">SEE MY RESUME</button>
-      </div>
+
+      <h2 id="hi2">Surojit Mondal</h2>
       <article id="bio">Aspiring Full-stack web developer</article>
+      <div class="button-on-home">
+        <button id="contact-me">CONTACT ME</button><button id="see-my-resume">SEE MY RESUME</button>
+      </div>
+
+      <dialog id="resume-container">
+        <iframe src="resume.pdf" frameborder="0" id="resume" title="My Resume"></iframe>
+        <button>×</button>
+      </dialog>
 
       <div id="icons-on-home">
-        <a href="https://www.linkedin.com/in/surojitmondal/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/surojitmondal/" target="_blank" title="My LinkedIn"><i
+            class="fa-brands fa-linkedin"></i></a>
 
-        <a href="https://github.com/mondalsurojit" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://github.com/mondalsurojit" target="_blank" title="My Github"><i
+            class="fa-brands fa-github"></i></a>
 
-        <a href="mailto:surojitmondalit@gmail.com?subject=From%20Website" target="_blank"><i
+        <a href="mailto:surojitmondalit@gmail.com?subject=From%20Website" target="_blank" title="Mail Me"><i
             class="fa-solid fa-envelope"></i></a>
       </div>
 
@@ -235,7 +260,7 @@ ________________________________________________________________________________
       <!-- <h2>CONTACT ME</h2>-->
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSfoqIPn6fy7Osy5CtHvAdO8LymRxCp29YbW0TbQBSLjWlHDNg/viewform?embedded=true"
-        width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="Contact Form">Loading…</iframe>
     </section>
 
 

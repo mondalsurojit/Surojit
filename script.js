@@ -46,12 +46,12 @@ var swiper = new Swiper(".mySwiper2, .mySwiper3", {
 
 
 
-window.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        document.querySelector("#preloader").style.transform = "translate(0, -105vh)";
-        console.log("loaded");
-    }, 3000);
-});
+// window.addEventListener("DOMContentLoaded", () => {
+//     setTimeout(() => {
+//         document.querySelector("#preloader").style.transform = "translate(0, -105vh)";
+//         console.log("loaded");
+//     }, 3000);
+// });
 
 
 
@@ -79,7 +79,7 @@ let xIcon = document.querySelector(".x-icon");
 let main = document.querySelector("main");
 let navElements = Array.from(document.querySelectorAll(".nav li a"));
 
-document.querySelectorAll("header p").forEach((element) => {
+document.querySelectorAll("header button").forEach((element) => {
     element.addEventListener("click", () => {
         nav.classList.toggle("nav-active");
         hamburgerIcon.classList.toggle("icon-hide");
@@ -126,25 +126,39 @@ window.addEventListener("scroll", () => {
 
 
 let html = document.querySelector("html");
-let dialog = document.querySelector("dialog");
-let dialogBg = document.querySelector("#dialog-bg");
+let profileStory = document.querySelector("#profile-story");
+let dialogBg = document.querySelector(".dialog-bg");
 
 document.querySelector(".profile-photo").addEventListener("click", () => {
-    dialog.show();
+    profileStory.show();
     dialogBg.style.display = "block";
-    html.style.position = "fixed";
-    html.style.overflowY = "scroll";
 
-    document.querySelector("dialog button").addEventListener("click", () => {
-        dialog.close();
+    document.querySelector("#profile-story button").addEventListener("click", () => {
+        profileStory.close();
         dialogBg.style.display = "none";
-        html.style.position = "static";
     });
 
     dialogBg.addEventListener("click", () => {
-        dialog.close();
+        profileStory.close();
         dialogBg.style.display = "none";
-        html.style.position = "static";
     });
 });
 
+
+let seeMyResume = document.querySelector("#see-my-resume");
+let resumeContainer = document.querySelector("#resume-container");
+
+document.querySelector("#see-my-resume").addEventListener("click", () => {
+    resumeContainer.show();
+    dialogBg.style.display = "block";
+
+    document.querySelector("#resume-container button").addEventListener("click", () => {
+        resumeContainer.close();
+        dialogBg.style.display = "none";
+    });
+
+    dialogBg.addEventListener("click", () => {
+        resumeContainer.close();
+        dialogBg.style.display = "none";
+    });
+});

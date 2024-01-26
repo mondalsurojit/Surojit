@@ -42,8 +42,7 @@ header {
 
 @media (hover:hover) {
 
-    .nav li a:hover,
-    .nav li a:focus {
+    .nav li a:hover {
         background-color: rgba(226, 226, 241, 0.425);
         cursor: pointer;
     }
@@ -67,7 +66,7 @@ header h1 {
     font-weight: bolder;
 }
 
-header p {
+header button {
     display: none;
 }
 
@@ -80,29 +79,12 @@ ________________________________________________________________________________
 
 
 main {
-    background-color: #ffffff;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23e0f4fc' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
     padding: 0 7vw 0 7vw;
-    z-index: -100;
-}
-
-section {
-    /* block-size: 100vh;
-    scroll-snap-align: center;
-    scroll-snap-stop: always; */
-    position: relative;
 }
 
 .section-heading {
-    grid-column: 1/7;
-    grid-row: 1/2;
-    color: #00308a;
     font-size: 40px;
-    text-align: center;
     letter-spacing: 2px;
-    text-decoration: overline;
-    text-decoration-color: #478ff9;
-    text-decoration-thickness: 6px;
 }
 
 
@@ -149,6 +131,7 @@ ________________________________________________________________________________
     grid-row: 4/11;
     margin: 0vh 10vw 2vh 10vw;
     background: #1c0c130d url(../images/noise.svg);
+    
     backdrop-filter: blur(60px);
     border-radius: 15px;
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -165,15 +148,12 @@ ________________________________________________________________________________
     place-self: center;
     height: 25vh;
     width: 25vh;
-    /* box-shadow: 2px 2px 10px rgb(255, 255, 255) inset; */
     border-radius: 50%;
     background: #1a1a1a url(../images/s2.jpg) no-repeat center center;
-    /* mix-blend-mode: darken; */
     background-size: contain;
     border: 2px solid #478ff9;
     z-index: 40;
     cursor: pointer;
-    /* pointer-events: none; */
 }
 
 .profile-photo::after {
@@ -202,8 +182,8 @@ ________________________________________________________________________________
 
 /* transform: translate(-50%, -50%) translateZ(-1px); */
 
-#dialog-bg {
-    position: absolute;
+.dialog-bg {
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -214,8 +194,8 @@ ________________________________________________________________________________
     display: none;
 }
 
-dialog {
-    position: absolute;
+#profile-story {
+    position: fixed;
     box-shadow: 1px 1px 10px rgb(0, 0, 0);
     border-radius: 12px;
     background-color: rgb(255, 255, 255);
@@ -228,13 +208,47 @@ dialog {
     /* transform-style: preserve-3d; */
 }
 
-dialog button {
+#profile-story button {
     background-color: transparent;
     font-size: 35px;
     cursor: pointer;
     position: absolute;
     top: 1.5vh;
     right: 2vw;
+}
+
+#resume-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 90vh;
+    width: 80vw;
+    border-radius: 12px;
+    z-index: 100;
+}
+
+#resume {
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+}
+
+#resume-container button {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 45px;
+    width: 45px;
+    display: grid;
+    place-content: center;
+    font-size: 40px;
+    background-color: rgb(245, 245, 245);
+    box-shadow: 1px 1px 5px black;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 101;
 }
 
 #hi2 {
@@ -314,8 +328,7 @@ dialog button {
 
 @media (hover:hover) {
 
-    .button-on-home button:hover,
-    .button-on-home button:focus {
+    .button-on-home button:hover {
         box-shadow: 3px 3px 2px #514A9D;
         background-image: linear-gradient(-45deg, #3FA9E8, #6D7BCC, #478ff9, #6D7BCC);
         background-size: 500%;
@@ -422,55 +435,54 @@ ________________________________________________________________________________
 .photo-prop:nth-child(1) {
     grid-column: 1/2;
     grid-row: 1/3;
-    background-image: url(../images/home2.png);
+    background-image: url(../images/home2.webp);
 }
 
 .photo-prop:nth-child(2) {
     grid-column: 2/4;
     grid-row: 1/3;
-    background-image: url(../images/bg.jpg);
+    background-image: url(../images/bg.webp);
 }
 
 .photo-prop:nth-child(3) {
     grid-column: 4/5;
     grid-row: 1/3;
-    background-image: url(../images/home2.png);
+    background-image: url(../images/home2.webp);
 }
 
 .photo-prop:nth-child(4) {
     grid-column: 5/7;
     grid-row: 1/3;
-    background-image: url(../images/bg.jpg);
+    background-image: url(../images/bg.webp);
 }
 
 .photo-prop:nth-child(5) {
     grid-column: 1/3;
     grid-row: 3/5;
-    background-image: url(../images/bg.jpg);
+    background-image: url(../images/bg.webp);
 }
 
 .photo-prop:nth-child(6) {
     grid-column: 3/4;
     grid-row: 3/5;
-    background-image: url(../images/home2.png);
+    background-image: url(../images/home2.webp);
 }
 
 .photo-prop:nth-child(7) {
     grid-column: 4/6;
     grid-row: 3/5;
-    background-image: url(../images/bg.jpg);
+    background-image: url(../images/bg.webp);
 }
 
 .photo-prop:nth-child(8) {
     grid-column: 6/7;
     grid-row: 3/5;
-    background-image: url(../images/home2.png);
+    background-image: url(../images/home2.webp);
 }
 
 @media (hover:hover) {
 
-    .photo-prop:hover,
-    .photo-prop:focus {
+    .photo-prop:hover {
         background-size: 102%;
     }
 }
@@ -539,8 +551,7 @@ ________________________________________________________________________________
 
 @media (hover:hover) {
 
-    .ed-card:hover,
-    .ed-card:focus {
+    .ed-card:hover {
         box-shadow: 2px 2px 3px #00308a5e;
     }
 }
@@ -662,20 +673,10 @@ ________________________________________________________________________________
 
 
 #contact {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    padding: 0px 15vh 0 15vh;
     height: 190vh;
-    margin-top: 15vh;
+    padding: 0px 15vh 0 15vh;
     scroll-margin-top: 7vh;
     scroll-margin-bottom: 20vh;
-
-}
-
-#contact iframe {
-    grid-column: 1/7;
-    grid-row: 1/3;
 }
 
 
