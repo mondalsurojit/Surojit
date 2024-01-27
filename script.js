@@ -29,7 +29,7 @@ var swiper = new Swiper(".mySwiper2, .mySwiper3", {
     },
     autoplay: {
         delay: 5000,
-        disableOnInteraction: false,
+        disableOnInteraction: true,
     },
     keyboard: {
         enabled: true,

@@ -131,7 +131,6 @@ ________________________________________________________________________________
     grid-row: 4/11;
     margin: 0vh 10vw 2vh 10vw;
     background: #1c0c130d url(../images/noise.svg);
-    
     backdrop-filter: blur(60px);
     border-radius: 15px;
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -657,12 +656,124 @@ ________________________________________________________________________________
     border-radius: 8px;
 }
 
-/* .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  } */
+.skill-heading {
+    font-size: 25px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    color: #00308a;
+    /* text-decoration: underline; */
+    text-decoration-color: #478ff9;
+    text-decoration-thickness: 3px;
+}
+
+.swiper-slide-class ul {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: repeat(3, 120px);
+    gap: 2vw;
+    padding-bottom: 4vh;
+    list-style: none;
+}
+
+.swiper-slide-class ul li {
+    border: 1px dashed #478ff9;
+    height: 70px;
+    width: 120px;
+    display: grid;
+    place-items: center;
+}
+
+.swiper-slide-class ul li:hover {
+    border: 0;
+    box-shadow: 0px 0px 10px #478ef98b;
+}
+
+.swiper-slide-class ul li figure {
+    height: 50px;
+    width: 120px;
+    background-color: transparent !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    mix-blend-mode: darken;
+}
+
+/* first slide */
+
+#dev-skill-1 {
+    background: url(../images/html.svg);
+}
+
+#dev-skill-2 {
+    background: url(../images/css.svg);
+}
+
+#dev-skill-3 {
+    background: url(../images/js.webp);
+    filter: brightness(1.1) contrast(1.2);
+}
+
+#dev-skill-4 {
+    background: url(../images/bootstrap.svg);
+}
+
+#dev-skill-5 {
+    background: url(../images/gsap.svg);
+}
+
+#dev-skill-6 {
+    background: url(../images/swiper.svg);
+}
+
+#dev-skill-7 {
+    background: url(../images/django.svg);
+}
+
+#dev-skill-8 {
+    background: url(../images/sqlite.svg);
+}
+
+/* second slide */
+
+#prog-skill-1 {
+    background: url(../images/cpp.svg);
+}
+
+#prog-skill-2 {
+    background: url(../images/java.svg);
+}
+
+#prog-skill-3 {
+    background: url(../images/js.webp);
+    filter: brightness(1.1) contrast(1.2);
+}
+
+#prog-skill-4 {
+    background: url(../images/python.svg);
+}
+
+/* third slide */
+
+#tool-1 {
+    background: url(../images/git.svg);
+}
+
+#tool-2 {
+    background: url(../images/github.svg);
+}
+
+#tool-3 {
+    background: url(../images/vscode.svg);
+    filter: brightness(1.1) contrast(1.2);
+}
+
+#tool-4 {
+    background: url(../images/figma.svg);
+}
+
 
 
 
