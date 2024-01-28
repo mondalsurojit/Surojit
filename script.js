@@ -46,12 +46,12 @@ var swiper = new Swiper(".mySwiper2, .mySwiper3", {
 
 
 
-// window.addEventListener("DOMContentLoaded", () => {
-//     setTimeout(() => {
-//         document.querySelector("#preloader").style.transform = "translate(0, -105vh)";
-//         console.log("loaded");
-//     }, 3000);
-// });
+window.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        document.querySelector("#preloader").style.transform = "translate(0, -105vh)";
+        console.log("loaded");
+    }, 8500);
+});
 
 
 

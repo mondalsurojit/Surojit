@@ -44,7 +44,9 @@ body::-webkit-scrollbar-thumb:hover {
 
 #preloader {
     position: fixed;
-    display: block;
+    display: grid;
+    justify-items: center;
+    padding-top: 40vh;
     top: 0px;
     left: 0px;
     z-index: 100;
@@ -52,10 +54,117 @@ body::-webkit-scrollbar-thumb:hover {
     width: 100vw;
     overflow-y: none;
     background-attachment: fixed;
-    background: #000 url(../images/preloader.gif) no-repeat center center;
+    background: #ffffff;
     transition: transform 0.5s ease-out;
 }
 
+#text-wrapper {
+    height: 30px;
+    width: 40vw;
+    position: relative;
+}
+
+#preloader-text {
+    position: absolute;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+    font-family: monospace;
+    color: transparent;
+    background: linear-gradient(to right, #478ff9, #ff0000) no-repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: 40vw 30px;
+    background-position: -40vw 0px;
+    animation: typing 5s linear 1s forwards;
+}
+
+@keyframes typing {
+    100% {
+        background-position: 0px 0px;
+    }
+}
+
+#caret {
+    position: absolute;
+    top: -5px;
+    left: 1.7vw;
+    font-size: 25px;
+    opacity: 0;
+    animation: blink 0.3s alternate infinite 1.2s, caretmotion 4.7s linear 1s forwards;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes caretmotion {
+    0% {
+        left: 0vw;
+    }
+
+    100% {
+        left: 37.5vw;
+    }
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    --c1:#673b14;
+    --c2:#f8b13b;
+    width: 45px;
+    height: 85px;
+    border-top: 4px solid var(--c1);
+    border-bottom: 4px solid var(--c1);
+    background: linear-gradient(90deg, var(--c1) 2px, var(--c2) 0 5px,var(--c1) 0) 50%/7px 8px no-repeat;
+    display: grid;
+    overflow: hidden;
+    animation: l5-0 2s infinite linear;
+  }
+  .loader::before,
+  .loader::after {
+    content: "";
+    grid-area: 1/1;
+    width: 75%;
+    height: calc(50% - 4px);
+    margin: 0 auto;
+    border: 2px solid var(--c1);
+    border-top: 0;
+    box-sizing: content-box;
+    border-radius: 0 0 40% 40%;
+    -webkit-mask: 
+      linear-gradient(#000 0 0) bottom/4px 2px no-repeat,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+    background: 
+      linear-gradient(var(--d,0deg),var(--c2) 50%,#0000 0) bottom /100% 205%,
+      linear-gradient(var(--c2) 0 0) center/0 100%;
+    background-repeat: no-repeat;
+    animation: inherit;
+    animation-name: l5-1;
+  }
+  .loader::after {
+    transform-origin: 50% calc(100% + 2px);
+    transform: scaleY(-1);
+    --s:3px;
+    --d:180deg;
+  }
+  @keyframes l5-0 {
+    80%  {transform: rotate(0)}
+    100% {transform: rotate(0.5turn)}
+  }
+  @keyframes l5-1 {
+    10%,70%  {background-size:100% 205%,var(--s,0) 100%}
+    70%,100% {background-position: top,center}
+  }
 
 /*
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++🏷️👇MAIN👇🏷️++++++++++++++++++++++++++++++++++++++++++++++++++++++
