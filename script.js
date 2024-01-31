@@ -27,10 +27,10 @@ var swiper = new Swiper(".mySwiper2, .mySwiper3", {
         el: ".swiper-pagination",
         clickable: true,
     },
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: true,
-    },
+    // autoplay: {
+    //     delay: 5000,
+    //     disableOnInteraction: true,
+    // },
     keyboard: {
         enabled: true,
     },
@@ -133,32 +133,57 @@ document.querySelector(".profile-photo").addEventListener("click", () => {
     profileStory.show();
     dialogBg.style.display = "block";
 
-    document.querySelector("#profile-story button").addEventListener("click", () => {
-        profileStory.close();
-        dialogBg.style.display = "none";
+    document.querySelector("#profile-story button").addEventListener("click", closeProfileStory);
+
+    dialogBg.addEventListener("click", closeProfileStory);
+
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeProfileStory();
+        }
     });
 
-    dialogBg.addEventListener("click", () => {
+    function closeProfileStory() {
         profileStory.close();
         dialogBg.style.display = "none";
-    });
+    }
 });
 
 
 let seeMyResume = document.querySelector("#see-my-resume");
 let resumeContainer = document.querySelector("#resume-container");
 
-document.querySelector("#see-my-resume").addEventListener("click", () => {
+seeMyResume.addEventListener("click", () => {
     resumeContainer.show();
     dialogBg.style.display = "block";
 
-    document.querySelector("#resume-container button").addEventListener("click", () => {
-        resumeContainer.close();
-        dialogBg.style.display = "none";
+    document.querySelector("#resume-container button").addEventListener("click", closeResumeContainer);
+
+    dialogBg.addEventListener("click", closeResumeContainer);
+
+    // Create an invisible input field
+    let invisibleInput = document.createElement("input");
+    Object.assign(invisibleInput.style, {
+        opacity: 0,
+        position: "absolute",
+        top: "-100px",
+    });
+    document.body.appendChild(invisibleInput);
+
+    // Set focus on the invisible input
+    invisibleInput.focus();
+
+    // Listen for keydown events on the invisible input
+    invisibleInput.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeResumeContainer();
+        }
     });
 
-    dialogBg.addEventListener("click", () => {
+    function closeResumeContainer() {
         resumeContainer.close();
         dialogBg.style.display = "none";
-    });
+        // Remove the invisible input from the DOM
+        document.body.removeChild(invisibleInput);
+    }
 });

@@ -254,6 +254,8 @@ ________________________________________________________________________________
     grid-row: 5/6;
     margin-top: 5vh;
     font-size: 40px;
+    font-family: 'Garamond', sans-serif;
+    letter-spacing: 2px;
     text-align: center;
     color: transparent;
     background: linear-gradient(to left, #24C6DC, #3FA9E8, #6D7BCC, #6D7BCC, #514A9D) no-repeat center center;
