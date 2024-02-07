@@ -187,3 +187,78 @@ seeMyResume.addEventListener("click", () => {
         document.body.removeChild(invisibleInput);
     }
 });
+
+
+
+
+let photoProps = Array.from(document.querySelectorAll(".photo-prop"));
+let photosDialog = document.querySelector("#photos-dialog");
+
+photoProps.forEach(photoProp => {
+    photoProp.addEventListener("click", () => {
+        let styles = window.getComputedStyle(photoProp);
+        let backgroundImage = styles.getPropertyValue('background-image');
+        photosDialog.show();
+        dialogBg.style.display = "block";
+        photosDialog.style.backgroundImage = backgroundImage;
+
+        document.querySelector("#photos-dialog button").addEventListener("click", closePhotosDialog);
+
+        dialogBg.addEventListener("click", closePhotosDialog);
+
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                closePhotosDialog();
+            }
+        });
+
+        function closePhotosDialog() {
+            photosDialog.close();
+            dialogBg.style.display = "none";
+        }
+    });
+});
+
+
+// let cursor = document.querySelector("#cursor");
+// document.addEventListener("mouseout", (e) => {
+//     cursor.style.display = "none";
+// });
+// document.addEventListener("mousemove", (e) => {
+//     cursor.setAttribute("style", `left: ${e.pageX - 15}px; top: ${e.pageY - 15}px;`);
+// });
+
+
+
+
+let paths = document.querySelectorAll("svg path");
+paths.forEach((path, index) => {
+    path.style.strokeDasharray = path.getTotalLength();
+    path.style.strokeDashoffset = path.getTotalLength();
+    path.style.animation = `line-anim 2s ease forwards ${index / 4}s`;
+});
+
+
+let leftScroll = document.querySelector("#left-scroll");
+let rightScroll = document.querySelector("#right-scroll");
+let experienceSlides = Array.from(document.querySelectorAll(".experience-slide"));
+
+experienceSlides.forEach((experienceSlide) => {
+
+    let styles1 = window.getComputedStyle(experienceSlides[0]);
+    let leftOffset = parseInt(styles1.getPropertyValue('left'));
+
+    let styles2 = window.getComputedStyle(experienceSlides[1]);
+    let rightOffset = parseInt(styles2.getPropertyValue('right'));
+
+    while (leftOffset != 0) {
+        leftScroll.addEventListener("click", () => {
+            experienceSlide.style.transform = "translateX(0)";
+        });
+    }
+    while (rightOffset != 0) {
+        rightScroll.addEventListener("click", () => {
+            experienceSlide.style.transform = "translateX(0)";
+        });
+    }
+});
