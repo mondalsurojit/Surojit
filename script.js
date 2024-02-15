@@ -46,12 +46,14 @@ var swiper = new Swiper(".mySwiper2, .mySwiper3", {
 
 
 
+
 window.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         document.querySelector("#preloader").style.transform = "translate(0, -105vh)";
         console.log("loaded");
     }, 8500);
 });
+
 
 
 
@@ -70,6 +72,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 //     lastScrollTop = currentScrollTop;
 // });
+
 
 
 
@@ -109,9 +112,24 @@ document.querySelectorAll("header button").forEach((element) => {
 
 
 
+
 let scrollMore = document.getElementById("scroll-more");
 
-window.addEventListener("scroll", () => {
+function throttle(func, delay) {
+    let flag = true;
+    return function () {
+        // let args = arguments;
+        // let context = this;
+        if (flag == true) {
+            // func.apply(args, context);
+            func();
+            flag = false;
+            setTimeout(() => { flag = true; }, delay);
+        }
+    };
+}
+
+function handleScroll() {
     let scrollPosition = window.scrollY;
     console.log(scrollPosition);
     scrollMore.classList.toggle("scroll-more-before", scrollPosition <= 50);
@@ -121,7 +139,12 @@ window.addEventListener("scroll", () => {
     navElements[2].classList.toggle("active-section", scrollPosition > 2040 && scrollPosition <= 2654);
     navElements[3].classList.toggle("active-section", scrollPosition > 2654 && scrollPosition <= 3290);
     navElements[4].classList.toggle("active-section", scrollPosition > 3290);
-});
+}
+
+const throttledScrollHandler = throttle(handleScroll, 200);
+
+window.addEventListener("scroll", throttledScrollHandler);
+
 
 
 
@@ -148,6 +171,8 @@ document.querySelector(".profile-photo").addEventListener("click", () => {
         dialogBg.style.display = "none";
     }
 });
+
+
 
 
 let seeMyResume = document.querySelector("#see-my-resume");
@@ -239,26 +264,73 @@ paths.forEach((path, index) => {
 });
 
 
-let leftScroll = document.querySelector("#left-scroll");
-let rightScroll = document.querySelector("#right-scroll");
+
+
+let experienceSlider = document.querySelector('#experience-slider');
+let rightScroll = document.querySelector('#right-scroll');
+let leftScroll = document.querySelector('#left-scroll');
+let scrollWidth = experienceSlider.scrollWidth;
+let scrollableDistance = scrollWidth - experienceSlider.clientWidth;
+let scrollTo = (scrollableDistance * 100) / 100;
+
+let slides = Array.from(document.querySelectorAll("#experience-slider div"));
+
+rightScroll.addEventListener('click', () => {
+    experienceSlider.scrollLeft = experienceSlider.scrollLeft + scrollTo;
+});
+
+leftScroll.addEventListener('click', () => {
+    experienceSlider.scrollLeft = experienceSlider.scrollLeft - scrollTo;
+});
+
+// experienceSlider.addEventListener('scroll', () => {
+//     if (experienceSlider.scrollLeft > 0 ) {
+//         rightScroll.style.display = "grid";
+//         leftScroll.style.display = "none";
+//         console.log(experienceSlider.scrollLeft);
+//     }
+//     else if (experienceSlider.scrollLeft + experienceSlider.clientWidth >= experienceSlider.scrollWidth) {
+//         rightScroll.style.display = "none";
+//         leftScroll.style.display = "grid";
+//         console.log("Reached the end");
+//     }
+//     else {
+//         leftScroll.style.display = "grid";
+//         rightScroll.style.display = "grid";
+//     }
+// });
+
+
+
+
 let experienceSlides = Array.from(document.querySelectorAll(".experience-slide"));
+let companyImgs = Array.from(document.querySelectorAll(".company-img"));
+let activeSlideIndex = 1;
+let companyNames = Array.from(document.querySelectorAll(".company-name"));
 
-experienceSlides.forEach((experienceSlide) => {
+companyImgs[1].classList.add("experience-slide-on-click");
+companyNames[1].style.transform = "translate(-50%, 100%)";
 
-    let styles1 = window.getComputedStyle(experienceSlides[0]);
-    let leftOffset = parseInt(styles1.getPropertyValue('left'));
+experienceSlides.forEach((experienceSlide, index) => {
+    let companyImg = companyImgs[index];
+    experienceSlide.style.cursor = "pointer";
 
-    let styles2 = window.getComputedStyle(experienceSlides[1]);
-    let rightOffset = parseInt(styles2.getPropertyValue('right'));
+    experienceSlide.addEventListener("mouseenter", () => {
+        companyImg.classList.add("experience-slide-on-click");
+    });
 
-    while (leftOffset != 0) {
-        leftScroll.addEventListener("click", () => {
-            experienceSlide.style.transform = "translateX(0)";
-        });
-    }
-    while (rightOffset != 0) {
-        rightScroll.addEventListener("click", () => {
-            experienceSlide.style.transform = "translateX(0)";
-        });
-    }
+    experienceSlide.addEventListener("mouseleave", () => {
+        if (activeSlideIndex !== index) {
+            companyImg.classList.remove("experience-slide-on-click");
+        }
+    });
+
+    experienceSlide.addEventListener("click", () => {
+        companyImgs[activeSlideIndex].classList.remove("experience-slide-on-click");
+        companyNames[activeSlideIndex].style.transform = "translate(-50%, 0)";
+
+        companyImg.classList.add("experience-slide-on-click");
+        companyNames[index].style.transform = "translate(-50%, 100%)";
+        activeSlideIndex = index;
+    });
 });

@@ -131,7 +131,7 @@ ________________________________________________________________________________
 
       <dialog id="resume-container">
         <iframe src="resume.pdf" frameborder="0" id="resume" title="My Resume"></iframe>
-        <button class="dialog-close">×</button>
+        <button class="round-button dialog-close">×</button>
       </dialog>
 
       <div id="icons-on-home">
@@ -165,7 +165,7 @@ ________________________________________________________________________________
       <div tabindex="0" class="photo-prop" title="Just us"></div>
       <div tabindex="0" class="photo-prop" title="Me & Sanidhya"></div>
       <dialog id="photos-dialog">
-        <button class="dialog-close">×</button>
+        <button class="round-button dialog-close">×</button>
       </dialog>
     </section>
 
@@ -202,34 +202,42 @@ ________________________________________________________________________________
     <section id="experience">
       <h2 class="section-heading">EXPERIENCE</h2>
 
-
       <div id="experience-wrapper">
-        <p id="left-scroll">&lt;</p>
+        <button class="round-button" id="left-scroll">&lt;</button>
 
         <div id="experience-slider">
-          <div class="experience-slide" id="experience-slide1">
-            <ul>
-              <li class="company-img1"></li>
-              <li class="company-img1"></li>
-              <li class="company-img1"></li>
-            </ul>
-            <div></div>
+          <div class="experience-slide">
+            <div class="company-img company-img1"></div>
+            <div class="experience-time-dot"></div>
           </div>
-
-          <div class="experience-slide" id="experience-slide2">
-            <ul>
-              <li class="company-img2"></li>
-              <li class="company-img2"></li>
-              <li class="company-img2"></li>
-            </ul>
+          <div class="experience-slide">
+            <div class="company-img company-img2"></div>
+            <div class="experience-time-dot"></div>
           </div>
+          <div class="experience-slide">
+            <div class="company-img company-img3"></div>
+            <div class="experience-time-dot"></div>
+          </div>
+          <div class="experience-slide">
+            <div class="company-img company-img4"></div>
+            <div class="experience-time-dot"></div>
+          </div>
+          <div id="experience-timeline"></div>
         </div>
 
-        <p id="right-scroll">&gt;</p>
+        <button class="round-button" id="right-scroll">&gt;</button>
       </div>
 
 
-      <div id="experience-description"></div>
+      <div id="experience-description">
+        <div id="company-name-wrapper">
+          <p class="company-name">Google Developer Student Clubs - GGV</p>
+          <p class="company-name">GFG STUDENT CHAPTER GGV</p>
+          <p class="company-name">Equilibrio-Techfest, GGV</p>
+          <p class="company-name">IEEEGGV</p>
+        </div>
+        <div></div>
+      </div>
     </section>
 
 

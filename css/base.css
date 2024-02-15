@@ -326,8 +326,28 @@ ________________________________________________________________________________
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100vw;
-    height: 100vh;
+    height: 110vh;
     background-color: var(--shade-vd);
     z-index: 94;
     display: none;
+}
+
+.round-button {
+    height: 45px;
+    width: 45px;
+    display: grid;
+    place-content: center;
+    font-size: 40px;
+    background-color: var(--shade-l);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.dialog-close {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    box-shadow: 1px 1px 5px black;
 }
