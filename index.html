@@ -46,8 +46,8 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/style-mobile.css" media="(max-width: 875px)">
-  <link rel="stylesheet" href="css/style-desktop.css" media="(min-width:876px)">
+  <link rel="stylesheet" href="css/style-mobile.css" media="(max-width: 975px)">
+  <link rel="stylesheet" href="css/style-desktop.css" media="(min-width:976px)">
 
   <!-- Preload Image -->
   <link rel="preload" href="../images/noise.svg" as="image">
@@ -145,7 +145,7 @@ ________________________________________________________________________________
             class="fa-solid fa-envelope"></i></a>
       </div>
 
-      <div id="scroll-more">⩡</div>
+      <div class="scroll-more-before" id="scroll-more">⩡</div>
     </section>
 
 
@@ -185,10 +185,28 @@ ________________________________________________________________________________
 
 
     <section id="projects">
-      <h2 class="section-heading">MY PROJECTS</h2>
-      <div id="laptop-mockup"></div>
-      <div id="laptop-container">
-
+      <h2 class="section-heading">My Projects</h2>
+      <div class="laptop-bg">
+        <div class="laptop-wrapper">
+          <div class="project-screen" id="project-screen-1">
+            <button class="button-on-home">1</button>
+          </div>
+          <div class="project-screen" id="project-screen-2">
+            <button class="button-on-home">2</button>
+          </div>
+          <div class="project-screen" id="project-screen-3">
+            <button class="button-on-home">3</button>
+          </div>
+          <div class="project-screen" id="project-screen-4">
+            <button class="button-on-home">4</button>
+          </div>
+          <div id="app-tray">
+            <div class="laptop-icons" id="project-1" title="Tic-Tac-Toe"></div>
+            <div class="laptop-icons" id="project-2" title="Net-Speed"></div>
+            <div class="laptop-icons" id="project-3" title="Casio-fx-991ES_Plus"></div>
+            <div class="laptop-icons" id="project-4" title="Stock-Bot"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -200,43 +218,63 @@ ________________________________________________________________________________
 
 
     <section id="experience">
-      <h2 class="section-heading">EXPERIENCE</h2>
+      <h2 class="section-heading">Experience</h2>
 
       <div id="experience-wrapper">
-        <button class="round-button" id="left-scroll">&lt;</button>
+        <button class="round-button" id="left-scroll">«</button>
 
         <div id="experience-slider">
           <div class="experience-slide">
-            <div class="company-img company-img1"></div>
+            <div class="company-img company-img1" title="GDSC - GGV"></div>
             <div class="experience-time-dot"></div>
+            <p class="experience-time">Sep 2023 - Present</p>
           </div>
           <div class="experience-slide">
-            <div class="company-img company-img2"></div>
+            <div class="company-img company-img2" title="GFG - GGV"></div>
             <div class="experience-time-dot"></div>
+            <p class="experience-time">Sep 2023 - Present</p>
           </div>
           <div class="experience-slide">
-            <div class="company-img company-img3"></div>
+            <div class="company-img company-img3" title="Tech-Fest - GGV"></div>
             <div class="experience-time-dot"></div>
+            <p class="experience-time">Mar 2023 - Apr 2023</p>
           </div>
           <div class="experience-slide">
-            <div class="company-img company-img4"></div>
+            <div class="company-img company-img4" title="IEEE - GGV"></div>
             <div class="experience-time-dot"></div>
+            <p class="experience-time">Jan 2023 - Present</p>
           </div>
           <div id="experience-timeline"></div>
         </div>
 
-        <button class="round-button" id="right-scroll">&gt;</button>
+        <button class="round-button" id="right-scroll">»</button>
       </div>
 
 
       <div id="experience-description">
         <div id="company-name-wrapper">
           <p class="company-name">Google Developer Student Clubs - GGV</p>
-          <p class="company-name">GFG STUDENT CHAPTER GGV</p>
-          <p class="company-name">Equilibrio-Techfest, GGV</p>
-          <p class="company-name">IEEEGGV</p>
+          <p class="company-name">GFG Student Chapter - GGV</p>
+          <p class="company-name">Equilibrio-Techfest - GGV</p>
+          <p class="company-name">IEEE - GGV</p>
         </div>
-        <div></div>
+        <hr>
+        <div id="company-jobtype-wrapper">
+          <p class="company-jobtype"><u>Executive (Android/Web Dev Team)</u> · Part-time · On-site</p>
+          <p class="company-jobtype"><u>Senior Executive (Web Dev Team)</u> · Part-time · On-site</p>
+          <p class="company-jobtype"><u>Member</u> · Part-time · On-site</p>
+          <p class="company-jobtype"><u>Web Development Team Member</u> · Part-time · On-site</p>
+        </div>
+        <div id="company-jobdetails-wrapper">
+          <p class="company-jobdetails">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos
+            voluptates. Quisquam, quos voluptates.</p>
+          <p class="company-jobdetails">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos
+            voluptates. Quisquam, quos voluptates.</p>
+          <p class="company-jobdetails">*Guided and interacted with innumerous people visiting the Tech-Fest, being a
+            member of the help desk support.<br>*Gained experience of Team-Work and Event-Management.</p>
+          <p class="company-jobdetails">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos
+            voluptates. Quisquam, quos voluptates.</p>
+        </div>
       </div>
     </section>
 
@@ -248,7 +286,7 @@ ________________________________________________________________________________
 
 
     <section id="education">
-      <h2 class="section-heading">EDUCATION</h2>
+      <h2 class="section-heading">Education</h2>
 
       <!--+++++++++++++++++++++++💻DESKTOP VIEW📗+++++++++++++++++++++++++++-->
       <div tabindex="0" class="ed-card ed-card1">
@@ -322,7 +360,7 @@ ________________________________________________________________________________
 
 
     <section id="skills">
-      <h2 class="section-heading">MY SKILLS</h2>
+      <h2 class="section-heading">My Skills</h2>
       <div id="left-skills"></div>
 
       <div class="swiper mySwiper3">
@@ -440,10 +478,10 @@ ________________________________________________________________________________
 
     <section id="contact">
       <!-- <h2>CONTACT ME</h2>-->
-      <iframe
+      <!-- <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSfoqIPn6fy7Osy5CtHvAdO8LymRxCp29YbW0TbQBSLjWlHDNg/viewform?embedded=true"
         width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0"
-        title="Contact Form">Loading…</iframe>
+        title="Contact Form">Loading…</iframe> -->
     </section>
 
 

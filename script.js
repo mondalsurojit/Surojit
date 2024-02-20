@@ -132,8 +132,8 @@ function throttle(func, delay) {
 function handleScroll() {
     let scrollPosition = window.scrollY;
     console.log(scrollPosition);
-    scrollMore.classList.toggle("scroll-more-before", scrollPosition <= 50);
-    scrollMore.classList.toggle("scroll-more-after", scrollPosition > 50);
+    scrollMore.classList.toggle("scroll-more-before", scrollPosition <= 200);
+    scrollMore.classList.toggle("scroll-more-after", scrollPosition > 200);
     navElements[0].classList.toggle("active-section", scrollPosition > 810 && scrollPosition <= 1425);
     navElements[1].classList.toggle("active-section", scrollPosition > 1425 && scrollPosition <= 2040);
     navElements[2].classList.toggle("active-section", scrollPosition > 2040 && scrollPosition <= 2654);
@@ -141,7 +141,7 @@ function handleScroll() {
     navElements[4].classList.toggle("active-section", scrollPosition > 3290);
 }
 
-const throttledScrollHandler = throttle(handleScroll, 200);
+const throttledScrollHandler = throttle(handleScroll, 75);
 
 window.addEventListener("scroll", throttledScrollHandler);
 
@@ -307,9 +307,13 @@ let experienceSlides = Array.from(document.querySelectorAll(".experience-slide")
 let companyImgs = Array.from(document.querySelectorAll(".company-img"));
 let activeSlideIndex = 1;
 let companyNames = Array.from(document.querySelectorAll(".company-name"));
+let companyJobTypes = Array.from(document.querySelectorAll(".company-jobtype"));
+let companyJobDetails = Array.from(document.querySelectorAll(".company-jobdetails"));
 
 companyImgs[1].classList.add("experience-slide-on-click");
 companyNames[1].style.transform = "translate(-50%, 100%)";
+companyJobTypes[1].style.transform = "translate(-50%, 100%)";
+companyJobDetails[1].style.transform = "translate(-50%, 100%)";
 
 experienceSlides.forEach((experienceSlide, index) => {
     let companyImg = companyImgs[index];
@@ -327,10 +331,82 @@ experienceSlides.forEach((experienceSlide, index) => {
 
     experienceSlide.addEventListener("click", () => {
         companyImgs[activeSlideIndex].classList.remove("experience-slide-on-click");
-        companyNames[activeSlideIndex].style.transform = "translate(-50%, 0)";
-
+        [companyNames, companyJobTypes, companyJobDetails].forEach(elemList => {
+            elemList[activeSlideIndex].classList.remove("current-experience-description-on-click");
+            elemList[activeSlideIndex].classList.add("previous-experience-description-on-click");
+        });
         companyImg.classList.add("experience-slide-on-click");
-        companyNames[index].style.transform = "translate(-50%, 100%)";
+        [companyNames, companyJobTypes, companyJobDetails].forEach(elemList => {
+            elemList[index].classList.remove("previous-experience-description-on-click");
+            elemList[index].classList.add("current-experience-description-on-click");
+        });
         activeSlideIndex = index;
+    });
+});
+
+
+
+let laptopWrapper = document.querySelector(".laptop-wrapper");
+let laptopIcons = Array.from(document.querySelectorAll(".laptop-icons"));
+let projectScreens = Array.from(document.querySelectorAll(".project-screen"));
+let count = 0;
+
+laptopIcons.forEach((laptopIcon, index) => {
+    const length = projectScreens.length;
+    for (let i = 0; i < length; i++) {
+        projectScreens[i].style.zIndex = 0;
+    }
+
+    laptopIcon.addEventListener("mouseenter", () => {
+        laptopIcon.style.transform = "scale(1.1)";
+        let div = document.createElement("div");
+        div.classList.add("minimized");
+        laptopIcon.appendChild(div);
+    });
+
+
+    laptopIcon.addEventListener("mouseleave", () => {
+        laptopIcon.style.transform = "scale(1)";
+        laptopIcon.removeChild(laptopIcon.lastChild);
+    });
+
+
+    laptopIcon.addEventListener("click", () => {
+        if (laptopIcon.lastChild) {
+            laptopIcon.removeChild(laptopIcon.lastChild);
+        }
+        count++;
+        if (parseInt(projectScreens[index].style.zIndex) == 3) {
+            projectScreens[index].classList.toggle("icon-after-click");
+
+            for (let i = 0; i < length; i++) {
+                if (parseInt(projectScreens[index].style.zIndex) > parseInt(projectScreens[i].style.zIndex)) {
+                    projectScreens[i].style.zIndex = parseInt(projectScreens[i].style.zIndex) + 1;
+                }
+            }
+            setTimeout(() => { projectScreens[index].style.zIndex = 0; }, 500);
+        }
+        else {
+            projectScreens[index].classList.add("icon-after-click");
+
+            for (let i = 0; i < length; i++) {
+                if (parseInt(projectScreens[index].style.zIndex) < parseInt(projectScreens[i].style.zIndex)) {
+                    projectScreens[i].style.zIndex = parseInt(projectScreens[i].style.zIndex) - 1;
+                }
+            }
+            projectScreens[index].style.zIndex = 3;
+        }
+
+        setTimeout(() => {
+            console.table([{
+                Count: count,
+                Index: index,
+                z0: projectScreens[0].style.zIndex,
+                z1: projectScreens[1].style.zIndex,
+                z2: projectScreens[2].style.zIndex,
+                z3: projectScreens[3].style.zIndex,
+            }]);
+        }, 500);
+
     });
 });
