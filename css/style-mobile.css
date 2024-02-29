@@ -701,6 +701,7 @@ ________________________________________________________________________________
     width: 400%;
     height: 6px;
     background: linear-gradient(to left, var(--blue6), var(--blue5), var(--blue4), var(--blue3));
+    border-radius: 3px;
 }
 
 .experience-time-dot {
@@ -751,23 +752,23 @@ ________________________________________________________________________________
 }
 
 .company-img1 {
-    background: url(../images/icons/gdscggv.jpg);
+    background: url(../images/icons/gdscggv.webp);
     background-size: 25%;
     border: 0;
 }
 
 .company-img2 {
-    background: url(../images/icons/gfgggv.jpg);
+    background: url(../images/icons/gfgggv.webp);
     background-size: 25%;
 }
 
 .company-img3 {
-    background: url(../images/icons/techfest.jpg);
+    background: url(../images/icons/techfest.webp);
     background-size: 25%;
 }
 
 .company-img4 {
-    background: url(../images/icons/ieeeggv.jpg);
+    background: url(../images/icons/ieeeggv.webp);
     background-size: 25%;
 }
 
@@ -946,17 +947,17 @@ ________________________________________________________________________________
 }
 
 .ed-img1 {
-    background: url(../images/icse.jpg) no-repeat center center;
+    background: url(../images/icse.webp) no-repeat center center;
     background-size: contain;
 }
 
 .ed-img2 {
-    background: url(../images/isc.jpg) no-repeat center center;
+    background: url(../images/icse2.webp) no-repeat center center;
     background-size: contain;
 }
 
 .ed-img3 {
-    background: url(../images/btech.png) no-repeat center center;
+    background: url(../images/icons/ggu.svg) no-repeat center center;
     background-size: contain;
 }
 
@@ -1152,6 +1153,10 @@ ________________________________________________________________________________
     background: url(../images/icons/figma.svg);
 }
 
+#tool-5 {
+    background: url(../images/icons/postman.svg);
+}
+
 
 
 
@@ -1165,7 +1170,7 @@ ________________________________________________________________________________
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(10, 1fr);
-    height: 150vh;
+    height: 160vh;
     margin-top: 5vh;
     padding: 10vh 9vw 0 9vw;
 }
@@ -1182,8 +1187,7 @@ ________________________________________________________________________________
 }
 
 #short-info {
-    /* border: 2px solid pink; */
-    height: 25vh;
+    height: 30vh;
     width: 100%;
     font-size: 15px;
     line-height: 30px;
@@ -1305,8 +1309,6 @@ ________________________________________________________________________________
 #contact-form {
     grid-column: 1/7;
     grid-row: 6/11;
-    padding-top: 5vh;
-    /* border: 1px solid pink; */
 }
 
 form {

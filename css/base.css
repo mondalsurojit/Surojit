@@ -38,7 +38,7 @@
     border: none;
     text-decoration: none;
     list-style: none;
-    transition: all .5s ease-out;
+    transition: all .4s ease-out;
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
     /* cursor: none; */

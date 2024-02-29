@@ -708,9 +708,8 @@ ________________________________________________________________________________
     height: 12vh;
     width: 8vw;
     border-radius: 8px;
-    background-color: aliceblue;
-    border: 2px solid var(--glass-border);
-    box-shadow: 0px 2px 5px var(--shade-vd);
+    border: .5px solid white;
+    box-shadow: 3px 3px 5px var(--shade-vd);
 }
 
 
@@ -806,6 +805,7 @@ ________________________________________________________________________________
     width: calc(100% + 100% /3);
     height: 6px;
     background: linear-gradient(to left, var(--blue6), var(--blue5), var(--blue3));
+    border-radius: 3px;
 }
 
 .experience-time-dot {
@@ -857,23 +857,23 @@ ________________________________________________________________________________
 }
 
 .company-img1 {
-    background: url(../images/icons/gdscggv.jpg);
+    background: url(../images/icons/gdscggv.webp);
     background-size: 25%;
     border: 0;
 }
 
 .company-img2 {
-    background: url(../images/icons/gfgggv.jpg);
+    background: url(../images/icons/gfgggv.webp);
     background-size: 25%;
 }
 
 .company-img3 {
-    background: url(../images/icons/techfest.jpg);
+    background: url(../images/icons/techfest.webp);
     background-size: 25%;
 }
 
 .company-img4 {
-    background: url(../images/icons/ieeeggv.jpg);
+    background: url(../images/icons/ieeeggv.webp);
     background-size: 25%;
 }
 
@@ -989,7 +989,7 @@ ________________________________________________________________________________
     position: relative;
     height: calc(100% - 14vh);
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
     margin-top: 2vh;
     background: var(--glass-bg) url(../images/noise.svg);
     backdrop-filter: blur(10px);
@@ -1079,19 +1079,20 @@ ________________________________________________________________________________
 }
 
 .ed-img1 {
-    background: url(../images/icse.jpg) no-repeat center center;
+    background: url(../images/icse.webp) no-repeat center center;
 }
 
 .ed-img2 {
-    background: url(../images/isc.jpg) no-repeat center center;
+    background: url(../images/icse2.webp) no-repeat center center;
 }
 
 .ed-img3 {
-    background: url(../images/btech.png) no-repeat center center;
+    background: url(../images/icons/ggu.svg) no-repeat center center;
 }
 
 .ed-heading {
     font-size: 20px;
+    margin-top: 1vh;
 }
 
 .ed-article {
@@ -1266,6 +1267,9 @@ ________________________________________________________________________________
     background: url(../images/icons/figma.svg);
 }
 
+#tool-5 {
+    background: url(../images/icons/postman.svg);
+}
 
 
 

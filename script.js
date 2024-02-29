@@ -394,14 +394,12 @@ laptopIcons.forEach((laptopIcon, index) => {
     for (let i = 0; i < length; i++) {
         projectScreens[i].style.zIndex = 0;
     }
-    // let styles = window.getComputedStyle(projectScreens);
-    // let backgroundImage = styles.getPropertyValue('background-image');
 
     laptopIcon.addEventListener("mouseenter", () => {
         laptopIcon.style.transform = "scale(1.1)";
         let div = document.createElement("div");
         div.classList.add("minimized");
-        // div.style.background=backgroundImage;
+        div.style.background = `gray url("images/p${index}.webp") no-repeat center center/contain`;
         laptopIcon.appendChild(div);
     });
 
