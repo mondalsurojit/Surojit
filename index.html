@@ -54,18 +54,20 @@
 
   <!-- External Libraries -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
 </head>
 
 
 <body>
-  <!-- <div id="preloader">
+  <div id="preloader">
     <div class="loader"></div>
-    <div id="text-wrapper">
-      <p id="preloader-text">Hey there !!! Welcome to Surojit Mondal's site</p>
+    <div id="text-container">
+      <p class="preloader-text preloader-text-desktop">Hey there !!! Welcome to Surojit Mondal's site</p>
+      <p class="preloader-text preloader-text-mobile">Hey Welcome !!!</p>
       <p id="caret">|</p>
     </div>
-  </div> -->
+  </div>
 
   <div id="cursor"></div>
 
@@ -120,18 +122,19 @@ ________________________________________________________________________________
       <button class="profile-photo" aria-label="View Status" title="View Status"></button>
       <div class="dialog-bg"></div>
       <dialog id="profile-story">
-        <button>×</button>
+        <button class="round-button x-button x-button-corner">×</button>
       </dialog>
 
       <h2 id="hi2">Surojit Mondal</h2>
       <article id="bio">Aspiring Full-stack web developer</article>
       <div class="button-on-home">
-        <button id="contact-me">CONTACT ME</button><button id="see-my-resume">SEE MY RESUME</button>
+        <button class="big-button" id="about-me">ABOUT ME</button><button class="big-button" id="see-my-resume">SEE
+          MY RESUME</button>
       </div>
 
       <dialog id="resume-container">
         <iframe src="resume.pdf" frameborder="0" id="resume" title="My Resume"></iframe>
-        <button class="round-button dialog-close">×</button>
+        <button class="round-button x-button">×</button>
       </dialog>
 
       <div id="icons-on-home">
@@ -165,7 +168,7 @@ ________________________________________________________________________________
       <div tabindex="0" class="photo-prop" title="Just us"></div>
       <div tabindex="0" class="photo-prop" title="Me & Sanidhya"></div>
       <dialog id="photos-dialog">
-        <button class="round-button dialog-close">×</button>
+        <button class="round-button x-button">×</button>
       </dialog>
     </section>
 
@@ -174,7 +177,10 @@ ________________________________________________________________________________
     <script src="https://kit.fontawesome.com/266833c2f6.js" crossorigin="anonymous" defer></script>
 
     <!-- Custom Script -->
+    <script src="https://smtpjs.com/v3/smtp.js" async></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script src="script.js" defer></script>
+
 
 
 
@@ -186,19 +192,56 @@ ________________________________________________________________________________
 
     <section id="projects">
       <h2 class="section-heading">My Projects</h2>
+
+      <!--+++++++++++++++++++++++💻DESKTOP VIEW📗+++++++++++++++++++++++++++-->
       <div class="laptop-bg">
         <div class="laptop-wrapper">
           <div class="project-screen" id="project-screen-1">
-            <button class="button-on-home">1</button>
+            <div class="title-bar">
+              <div class="icons-3">
+                <a href="https://mondalsurojit.github.io/Net-Speed/index.html" target="_blank"><button class="link"
+                    title="Link"></button></a>
+                <button class="reload" title="Reload"></button>
+                <button class="close" title="Close">✕</button>
+              </div>
+            </div>
+            <iframe class="laptop-iframe" src="https://mondalsurojit.github.io/Net-Speed/index.html"
+              title="Net-Speed"></iframe>
           </div>
           <div class="project-screen" id="project-screen-2">
-            <button class="button-on-home">2</button>
+            <div class="title-bar">
+              <div class="icons-3">
+                <a href="https://mondalsurojit.github.io/Tic-Tac-Toe/game.html" target="_blank"> <button class="link"
+                    title="Link"></button></a>
+                <button class="reload" title="Reload"></button>
+                <button class="close" title="Close">✕</button>
+              </div>
+            </div>
+            <iframe class="laptop-iframe" src="https://mondalsurojit.github.io/Tic-Tac-Toe/game.html"
+              title="Tic-Tac-Toe"></iframe>
           </div>
           <div class="project-screen" id="project-screen-3">
-            <button class="button-on-home">3</button>
+            <div class="title-bar">
+              <div class="icons-3">
+                <a href="https://mondalsurojit.github.io/Casio-fx-991ES_Plus/index.html" target="_blank"><button
+                    class="link" title="Link"></button></a>
+                <button class="reload" title="Reload"></button>
+                <button class="close" title="Close">✕</button>
+              </div>
+            </div>
+            <iframe class="laptop-iframe" src="https://mondalsurojit.github.io/Casio-fx-991ES_Plus/index.html"
+              title="Casio-fx-991ES_Plus"></iframe>
           </div>
           <div class="project-screen" id="project-screen-4">
-            <button class="button-on-home">4</button>
+            <div class="title-bar">
+              <div class="icons-3">
+                <a href="https://mondalsurojit.github.io/Tic-Tac-Toe/game.html" target="_blank"><button class="link"
+                    title="Link"></button></a>
+                <button class="reload" title="Reload"></button>
+                <button class="close" title="Close">✕</button>
+              </div>
+            </div>
+            <!-- <iframe class="laptop-iframe" src="https://mondalsurojit.github.io/Casio-fx-991ES_Plus/index.html" title="Casio-fx-991ES_Plus"></iframe> -->
           </div>
           <div id="app-tray">
             <div class="laptop-icons" id="project-1" title="Tic-Tac-Toe"></div>
@@ -208,6 +251,54 @@ ________________________________________________________________________________
           </div>
         </div>
       </div>
+      <!--+++++++++++++++++++++++💻DESKTOP VIEW📕+++++++++++++++++++++++++++-->
+
+
+      <!--+++++++++++++++++++++++📱MOBILE VIEW📗+++++++++++++++++++++++++++-->
+      <div id="project-container">
+
+        <div class="project-wrapper">
+          <div class="project-wrapper-child">
+            <div class="project-left-img test" id="project-left-img1"></div>
+            <p class="project-wrapper-child-text test">Slow internet? Quickly assess your internet speed using
+              <u>Net-Speed</u>
+            </p>
+          </div>
+          <a href="https://mondalsurojit.github.io/Net-Speed/index.html" class="click-tag">VISIT</a>
+        </div>
+
+
+        <div class="project-wrapper">
+          <div class="project-wrapper-child">
+            <div class="project-left-img test" id="project-left-img2"></div>
+            <p class="project-wrapper-child-text test">Feeling bored? Play <u>Tic-Tac-Toe</u> with your friend</p>
+          </div>
+          <a href="https://mondalsurojit.github.io/Tic-Tac-Toe/game.html" class="click-tag">VISIT</a>
+        </div>
+
+
+        <div class="project-wrapper">
+          <div class="project-wrapper-child">
+            <div class="project-left-img test" id="project-left-img3"></div>
+            <p class="project-wrapper-child-text test">Struck with a math calculation? Use my
+              <u>Casio-fx-991ES_Plus</u>
+            </p>
+          </div>
+          <a href="https://mondalsurojit.github.io/Casio-fx-991ES_Plus/index.html" class="click-tag">VISIT</a>
+        </div>
+
+
+        <div class="project-wrapper">
+          <div class="project-wrapper-child">
+            <div class="project-left-img test" id="project-left-img4"></div>
+            <p class="project-wrapper-child-text test">New to stocks? Use <u>Stock-Bot</u> to help you out</p>
+          </div>
+          <a href="https://mondalsurojit.github.io/Casio-fx-991ES_Plus/index.html" class="click-tag">VISIT</a>
+        </div>
+
+      </div>
+      <!--+++++++++++++++++++++++📱MOBILE VIEW📕+++++++++++++++++++++++++++-->
+
     </section>
 
 
@@ -250,30 +341,39 @@ ________________________________________________________________________________
         <button class="round-button" id="right-scroll">»</button>
       </div>
 
-
-      <div id="experience-description">
-        <div id="company-name-wrapper">
-          <p class="company-name">Google Developer Student Clubs - GGV</p>
-          <p class="company-name">GFG Student Chapter - GGV</p>
-          <p class="company-name">Equilibrio-Techfest - GGV</p>
-          <p class="company-name">IEEE - GGV</p>
-        </div>
-        <hr>
-        <div id="company-jobtype-wrapper">
-          <p class="company-jobtype"><u>Executive (Android/Web Dev Team)</u> · Part-time · On-site</p>
-          <p class="company-jobtype"><u>Senior Executive (Web Dev Team)</u> · Part-time · On-site</p>
-          <p class="company-jobtype"><u>Member</u> · Part-time · On-site</p>
-          <p class="company-jobtype"><u>Web Development Team Member</u> · Part-time · On-site</p>
-        </div>
-        <div id="company-jobdetails-wrapper">
-          <p class="company-jobdetails">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos
-            voluptates. Quisquam, quos voluptates.</p>
-          <p class="company-jobdetails">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos
-            voluptates. Quisquam, quos voluptates.</p>
-          <p class="company-jobdetails">*Guided and interacted with innumerous people visiting the Tech-Fest, being a
-            member of the help desk support.<br>*Gained experience of Team-Work and Event-Management.</p>
-          <p class="company-jobdetails">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos
-            voluptates. Quisquam, quos voluptates.</p>
+      <div id="experience-description-wrapper">
+        <div id="experience-description">
+          <div id="company-name-wrapper">
+            <p class="company-name" id="gdsc"></p>
+            <p class="company-name" id="gfg"></p>
+            <p class="company-name" id="techfest"></p>
+            <p class="company-name">IEEE - GGV</p>
+          </div>
+          <hr>
+          <div id="company-jobtype-wrapper">
+            <p class="company-jobtype"><u>Executive (Android/Web Dev Team)</u>
+              <l> · Part-time · On-site</l>
+            </p>
+            <p class="company-jobtype"><u>Senior Executive (Web Dev Team)</u>
+              <l> · Part-time · On-site</l>
+            </p>
+            <p class="company-jobtype"><u>Member</u>
+              <l> · Part-time · On-site</l>
+            </p>
+            <p class="company-jobtype"><u>Web Dev Team Member</u>
+              <l> · Part-time · On-site</l>
+            </p>
+          </div>
+          <div id="company-jobdetails-wrapper">
+            <p class="company-jobdetails">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos
+              voluptates. Quisquam, quos voluptates.</p>
+            <p class="company-jobdetails">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos
+              voluptates. Quisquam, quos voluptates.</p>
+            <p class="company-jobdetails">*Guided and interacted with innumerous people visiting the Tech-Fest, being a
+              member of the help desk support.<br>*Gained experience of Team-Work and Event-Management.</p>
+            <p class="company-jobdetails">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos
+              voluptates. Quisquam, quos voluptates.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -477,7 +577,41 @@ ________________________________________________________________________________
 
 
     <section id="contact">
-      <!-- <h2>CONTACT ME</h2>-->
+      <h2 class="section-heading">Contact Me</h2>
+      <div id="why-hire-me">
+        <p id="short-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nemo voluptas illo voluptate
+          molestias earum vel. Aperiam repellendus accusantium corporis neque, voluptate expedita. Ducimus, quia iste.
+          Enim assumenda expedita distinctio.</p>
+        <div id="github-details">
+          <p class="github-data" id="github-commits"></p>
+          <p class="github-data" id="github-followers"></p>
+          <p class="github-data" id="github-repos"></p>
+        </div>
+        <p id="short-info2">Book a 30-min private event with me.</p>
+        <!-- <a href="https://calendly.com/mondalsurojit/private-online-meet" target="_blank"><button class="big-button"
+            id="schedule-event-button">SCHEDULE EVENT</button></a> -->
+        <a href="" onclick="Calendly.initPopupWidget({
+            url: 'https://calendly.com/mondalsurojit/private-online-meet'});
+            return false;"><button class="big-button" id="schedule-event-button">SCHEDULE EVENT</button></a>
+      </div>
+      <div id="contact-form">
+        <form action="">
+          <div id="name-wrapper">
+            <input type="text" name="name" class="input-field" required>
+            <label for="name">Your Name</label>
+          </div>
+          <div id="email-wrapper">
+            <input type="email" name="email" class="input-field" required>
+            <label for="email">Your Email</label>
+          </div>
+          <div id="msg-wrapper">
+            <textarea name="msg" class="input-field" id="msg-field" required></textarea>
+            <label for="msg">Your Message</label>
+          </div>
+          <button type="submit" class="big-button" id="submit-button">SUBMIT</button>
+        </form>
+      </div>
+
       <!-- <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSfoqIPn6fy7Osy5CtHvAdO8LymRxCp29YbW0TbQBSLjWlHDNg/viewform?embedded=true"
         width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0"
@@ -496,8 +630,59 @@ ________________________________________________________________________________
 
 
   <footer>
-    <p>Copyright © 2023 Surojit Mondal</p>
+    <div class="footer-section" id="footer-section1">
+      <p class="footer-section-child" id="footer-section-text">Thank you for visiting my personal portfolio website.
+        Connect with me over
+        socials.</p>
+    </div>
+
+    <div class="footer-section" id="footer-section2">
+      <p class="footer-section-heading">Contact Info</p>
+      <a href="mailto:surojitmondalit@gmail.com?subject=From%20Website" target="_blank" title="Mail Me"
+        class="footer-section-child"><i class="fa-solid fa-envelope" target="_blank" title="My City"
+          aria-hidden="true"></i>
+        <p class="contact-links">surojitmondalit@gmail.com</p>
+      </a>
+      <a href="https://www.google.com/maps/place/Kolkata,+West+Bengal/@22.5355649,88.2649496,20628m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39f882db4908f667:0x43e330e68f6c2cbc!8m2!3d22.572646!4d88.363895!16zL20vMGN2dzk?authuser=0&entry=ttu"
+        class="footer-section-child"><i class="fas fa-map-marked-alt"></i>
+        <p class="contact-links">WB, India</p>
+      </a>
+      <div class="footer-section-child" id="footer-section-child-icons">
+        <a href="https://www.linkedin.com/in/surojitmondal/" target="_blank" title="My LinkedIn"><i
+            class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/mondalsurojit" target="_blank" title="My GitHub"><i
+            class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section" id="footer-section3">
+      <p class="footer-section-heading">Quick Links</p>
+      <a href="#home" class="footer-section-child"><i class="fas fa-chevron-circle-right"></i>
+        <p class="quick-links">Home</p>
+      </a>
+      <a href="" class="footer-section-child"><i class="fas fa-chevron-circle-right"></i>
+        <p class="quick-links">About</p>
+      </a>
+      <a href="#projects" class="footer-section-child"><i class="fas fa-chevron-circle-right"></i>
+        <p class="quick-links">Projects</p>
+      </a>
+      <a href="#experience" class="footer-section-child"><i class="fas fa-chevron-circle-right"></i>
+        <p class="quick-links">Experience</p>
+      </a>
+      <a href="#education" class="footer-section-child"><i class="fas fa-chevron-circle-right"></i>
+        <p class="quick-links">Education</p>
+      </a>
+      <a href="#skills" class="footer-section-child"><i class="fas fa-chevron-circle-right"></i>
+        <p class="quick-links">Skills</p>
+      </a>
+      <a href="#contact" class="footer-section-child"><i class="fas fa-chevron-circle-right"></i>
+        <p class="quick-links">Contact</p>
+      </a>
+    </div>
+    <hr>
+    <p>© Copyright 2024 - Developed by Surojit Mondal</p>
   </footer>
+
 </body>
 
 </html>

@@ -76,6 +76,33 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
+let html = document.querySelector("html");
+let profileStory = document.querySelector("#profile-story");
+let dialogBg = document.querySelector(".dialog-bg");
+
+document.querySelector(".profile-photo").addEventListener("click", () => {
+    profileStory.show();
+    dialogBg.classList.add("dialog-bg-visible");
+
+    document.querySelector("#profile-story button").addEventListener("click", closeProfileStory);
+
+    dialogBg.addEventListener("click", closeProfileStory);
+
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeProfileStory();
+        }
+    });
+
+    function closeProfileStory() {
+        profileStory.close();
+        dialogBg.classList.remove("dialog-bg-visible");
+    }
+});
+
+
+
+
 let nav = document.querySelector(".nav");
 let hamburgerIcon = document.querySelector(".hamburger-icon");
 let xIcon = document.querySelector(".x-icon");
@@ -88,12 +115,14 @@ document.querySelectorAll("header button").forEach((element) => {
         hamburgerIcon.classList.toggle("icon-hide");
         xIcon.classList.toggle("icon-show");
         main.classList.toggle("dark-bg");
+        dialogBg.classList.toggle("dialog-bg-visible");
 
         document.querySelector("main").addEventListener("click", () => {
             nav.classList.remove("nav-active");
             hamburgerIcon.classList.remove("icon-hide");
             xIcon.classList.remove("icon-show");
             main.classList.remove("dark-bg");
+            dialogBg.classList.remove("dialog-bg-visible");
         });
 
         navElements.forEach((element) => {
@@ -103,6 +132,7 @@ document.querySelectorAll("header button").forEach((element) => {
                     hamburgerIcon.classList.remove("icon-hide");
                     xIcon.classList.remove("icon-show");
                     main.classList.remove("dark-bg");
+                    dialogBg.classList.remove("dialog-bg-visible");
                 }, 1500);
             });
         });
@@ -148,29 +178,11 @@ window.addEventListener("scroll", throttledScrollHandler);
 
 
 
-let html = document.querySelector("html");
-let profileStory = document.querySelector("#profile-story");
-let dialogBg = document.querySelector(".dialog-bg");
+let aboutMe = document.querySelector("#about-me");
 
-document.querySelector(".profile-photo").addEventListener("click", () => {
-    profileStory.show();
-    dialogBg.style.display = "block";
-
-    document.querySelector("#profile-story button").addEventListener("click", closeProfileStory);
-
-    dialogBg.addEventListener("click", closeProfileStory);
-
-    window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            closeProfileStory();
-        }
-    });
-
-    function closeProfileStory() {
-        profileStory.close();
-        dialogBg.style.display = "none";
-    }
-});
+aboutMe.addEventListener("click", () => {
+    alert("Blog about me would be added very soon!");
+})
 
 
 
@@ -180,7 +192,7 @@ let resumeContainer = document.querySelector("#resume-container");
 
 seeMyResume.addEventListener("click", () => {
     resumeContainer.show();
-    dialogBg.style.display = "block";
+    dialogBg.classList.add("dialog-bg-visible");
 
     document.querySelector("#resume-container button").addEventListener("click", closeResumeContainer);
 
@@ -207,7 +219,7 @@ seeMyResume.addEventListener("click", () => {
 
     function closeResumeContainer() {
         resumeContainer.close();
-        dialogBg.style.display = "none";
+        dialogBg.classList.remove("dialog-bg-visible");
         // Remove the invisible input from the DOM
         document.body.removeChild(invisibleInput);
     }
@@ -224,7 +236,7 @@ photoProps.forEach(photoProp => {
         let styles = window.getComputedStyle(photoProp);
         let backgroundImage = styles.getPropertyValue('background-image');
         photosDialog.show();
-        dialogBg.style.display = "block";
+        dialogBg.classList.add("dialog-bg-visible");
         photosDialog.style.backgroundImage = backgroundImage;
 
         document.querySelector("#photos-dialog button").addEventListener("click", closePhotosDialog);
@@ -239,7 +251,7 @@ photoProps.forEach(photoProp => {
 
         function closePhotosDialog() {
             photosDialog.close();
-            dialogBg.style.display = "none";
+            dialogBg.classList.remove("dialog-bg-visible");
         }
     });
 });
@@ -256,22 +268,45 @@ photoProps.forEach(photoProp => {
 
 
 
-let paths = document.querySelectorAll("svg path");
-paths.forEach((path, index) => {
-    path.style.strokeDasharray = path.getTotalLength();
-    path.style.strokeDashoffset = path.getTotalLength();
-    path.style.animation = `line-anim 2s ease forwards ${index / 4}s`;
-});
+// let paths = document.querySelectorAll("svg path");
+// paths.forEach((path, index) => {
+//     path.style.strokeDasharray = path.getTotalLength();
+//     path.style.strokeDashoffset = path.getTotalLength();
+//     path.style.animation = `line-anim 2s ease forwards ${index / 4}s`;
+// });
 
 
 
+let gdsc = document.querySelector("#gdsc");
+let gfg = document.querySelector("#gfg");
+let techfest = document.querySelector("#techfest");
+let scrollValue;
 
+function screenSizeChange() {
+    if (window.innerWidth < 975) {
+        gdsc.textContent = "GDSC - GGV";
+        gfg.textContent = "GFG - GGV";
+        techfest.textContent = "Techfest - GGV";
+        scrollValue = 25;
+    } else {
+        gdsc.textContent = "Google Developer Student Clubs - GGV";
+        gfg.textContent = "GFG Student Chapter - GGV";
+        techfest.textContent = "Equilibrio-Techfest - GGV";
+        scrollValue = 100;
+    }
+}
+
+screenSizeChange();
+
+window.addEventListener('resize', screenSizeChange);
+
+
+console.log("scrollValue = ", scrollValue);
 let experienceSlider = document.querySelector('#experience-slider');
 let rightScroll = document.querySelector('#right-scroll');
 let leftScroll = document.querySelector('#left-scroll');
-let scrollWidth = experienceSlider.scrollWidth;
-let scrollableDistance = scrollWidth - experienceSlider.clientWidth;
-let scrollTo = (scrollableDistance * 100) / 100;
+let scrollableDistance = experienceSlider.scrollWidth - experienceSlider.clientWidth;
+let scrollTo = (scrollableDistance * scrollValue) / 100;
 
 let slides = Array.from(document.querySelectorAll("#experience-slider div"));
 
@@ -282,6 +317,9 @@ rightScroll.addEventListener('click', () => {
 leftScroll.addEventListener('click', () => {
     experienceSlider.scrollLeft = experienceSlider.scrollLeft - scrollTo;
 });
+
+
+
 
 // experienceSlider.addEventListener('scroll', () => {
 //     if (experienceSlider.scrollLeft > 0 ) {
@@ -305,15 +343,15 @@ leftScroll.addEventListener('click', () => {
 
 let experienceSlides = Array.from(document.querySelectorAll(".experience-slide"));
 let companyImgs = Array.from(document.querySelectorAll(".company-img"));
-let activeSlideIndex = 1;
+let activeSlideIndex = 0;
 let companyNames = Array.from(document.querySelectorAll(".company-name"));
 let companyJobTypes = Array.from(document.querySelectorAll(".company-jobtype"));
 let companyJobDetails = Array.from(document.querySelectorAll(".company-jobdetails"));
 
-companyImgs[1].classList.add("experience-slide-on-click");
-companyNames[1].style.transform = "translate(-50%, 100%)";
-companyJobTypes[1].style.transform = "translate(-50%, 100%)";
-companyJobDetails[1].style.transform = "translate(-50%, 100%)";
+companyImgs[0].classList.add("experience-slide-on-click");
+companyNames[0].style.transform = "translate(-50%, 100%)";
+companyJobTypes[0].style.transform = "translate(-50%, 100%)";
+companyJobDetails[0].style.transform = "translate(-50%, 100%)";
 
 experienceSlides.forEach((experienceSlide, index) => {
     let companyImg = companyImgs[index];
@@ -356,11 +394,14 @@ laptopIcons.forEach((laptopIcon, index) => {
     for (let i = 0; i < length; i++) {
         projectScreens[i].style.zIndex = 0;
     }
+    // let styles = window.getComputedStyle(projectScreens);
+    // let backgroundImage = styles.getPropertyValue('background-image');
 
     laptopIcon.addEventListener("mouseenter", () => {
         laptopIcon.style.transform = "scale(1.1)";
         let div = document.createElement("div");
         div.classList.add("minimized");
+        // div.style.background=backgroundImage;
         laptopIcon.appendChild(div);
     });
 
@@ -410,3 +451,123 @@ laptopIcons.forEach((laptopIcon, index) => {
 
     });
 });
+
+
+
+
+let reloads = Array.from(document.querySelectorAll(".reload"));
+let closes = Array.from(document.querySelectorAll(".close"));
+let iframes = Array.from(document.querySelectorAll(".laptop-iframe"));
+
+reloads.forEach((reload, index) => {
+    reload.addEventListener("click", () => {
+        iframes[index].src = iframes[index].src;
+    });
+});
+
+closes.forEach((close, index) => {
+    close.addEventListener("click", () => {
+        projectScreens[index].classList.remove("icon-after-click");
+
+        for (let i = 0; i < length; i++) {
+            if (parseInt(projectScreens[index].style.zIndex) > parseInt(projectScreens[i].style.zIndex)) {
+                projectScreens[i].style.zIndex = parseInt(projectScreens[i].style.zIndex) + 1;
+            }
+        }
+        setTimeout(() => { projectScreens[index].style.zIndex = 0; }, 500);
+    });
+});
+
+
+
+
+
+
+const myHeaders = new Headers();
+myHeaders.append("Cookie", "_octo=GH1.1.1182767592.1708736063; logged_in=no");
+
+const requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow"
+};
+
+fetch("https://api.github.com/users/mondalsurojit", requestOptions)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        const { public_repos, followers, public_gists } = data;
+
+        document.getElementById("github-repos").innerText = public_repos;
+        document.getElementById("github-followers").innerText = followers;
+        document.getElementById("github-commits").innerText = public_gists;
+    })
+    .catch((error) => console.error(error));
+
+
+
+let nameWrapper = document.querySelector("#name-wrapper");
+let emailWrapper = document.querySelector("#email-wrapper");
+let msgWrapper = document.querySelector("#msg-wrapper");
+
+let nameField = document.querySelector(`input[name="name"]`);
+let emailField = document.querySelector(`input[name="email"]`);
+let msgField = document.querySelector("#msg-field");
+
+let nameLabel = document.querySelector(`label[for="name"]`);
+let emailLabel = document.querySelector(`label[for="email"]`);
+let msgLabel = document.querySelector(`label[for="msg"]`);
+
+let submitButton = document.querySelector("#submit-button");
+let form = document.querySelector("form");
+
+function handleFocusBlur(wrapper, field, label) {
+    field.addEventListener("focus", () => {
+        if (field.value.trim() === "") {
+            label.classList.add("label-focus", "label-focus-color");
+        }
+        else {
+            label.classList.add("label-focus-color");
+        }
+        wrapper.style.outline = "2px solid var(--blue4)";
+    });
+
+    field.addEventListener("blur", () => {
+        if (field.value.trim() === "") {
+            label.classList.remove("label-focus", "label-focus-color");
+        }
+        else {
+            label.classList.remove("label-focus-color");
+        }
+        wrapper.style.outline = "1px solid var(--shade-t)";
+    });
+}
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+    let emailTemplate = `<div style="font-family: Arial, sans-serif; background-color: #f2f2f2; padding: 20px;">
+                            <p><span style="font-weight: bold;">Name:</span> ${nameField.value}</p>
+                            <p><span style="font-weight: bold;">Email:</span> ${emailField.value}</p>
+                            <p><span style="font-weight: bold;">Message:</span> ${msgField.value}</p>
+                        </div>`;
+    Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "surogobindo@gmail.com",
+        Password: "3EE3D483F6A5483F3C9FA5B5D08BE4FAC33E",
+        To: 'surojitmondalit@gmail.com',
+        From: "surogobindo@gmail.com",
+        Subject: "Sent from my portfolio website!",
+        Body: emailTemplate
+    }).then(
+        message => {
+            form.reset();
+            alert("Thanks for your message! I will reach you soon!");
+        }
+    );
+}
+
+handleFocusBlur(nameWrapper, nameField, nameLabel);
+handleFocusBlur(emailWrapper, emailField, emailLabel);
+handleFocusBlur(msgWrapper, msgField, msgLabel);
+
+form.addEventListener("submit", handleFormSubmit);
