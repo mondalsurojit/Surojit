@@ -406,7 +406,10 @@ laptopIcons.forEach((laptopIcon, index) => {
 
     laptopIcon.addEventListener("mouseleave", () => {
         laptopIcon.style.transform = "scale(1)";
-        laptopIcon.removeChild(laptopIcon.lastChild);
+        let divToRemove = laptopIcon.querySelector(".minimized"); // Selecting the added <div> using the class
+        if (divToRemove) {
+            laptopIcon.removeChild(divToRemove);
+        }
     });
 
 
@@ -415,7 +418,7 @@ laptopIcons.forEach((laptopIcon, index) => {
             laptopIcon.removeChild(laptopIcon.lastChild);
         }
         count++;
-        if (parseInt(projectScreens[index].style.zIndex) == 3) {
+        if (parseInt(projectScreens[index].style.zIndex) == 4) {
             projectScreens[index].classList.toggle("icon-after-click");
 
             for (let i = 0; i < length; i++) {
@@ -433,7 +436,7 @@ laptopIcons.forEach((laptopIcon, index) => {
                     projectScreens[i].style.zIndex = parseInt(projectScreens[i].style.zIndex) - 1;
                 }
             }
-            projectScreens[index].style.zIndex = 3;
+            projectScreens[index].style.zIndex = 4;
         }
 
         setTimeout(() => {
