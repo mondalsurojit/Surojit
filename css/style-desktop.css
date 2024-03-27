@@ -94,7 +94,7 @@ header h1 {
     left: 7vw;
     height: 100%;
     color: black;
-    font-size: 40px;
+    font-size: 35px;
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer;
     display: flex;
@@ -183,7 +183,7 @@ ________________________________________________________________________________
     height: 25vh;
     width: 25vh;
     border-radius: 50%;
-    background: black url(../images/s2.jpg) no-repeat center center;
+    background: black url(../images/dp.gif) no-repeat center center;
     background-size: contain;
     border: 2px solid var(--blue5);
     z-index: 40;
@@ -1357,7 +1357,7 @@ ________________________________________________________________________________
 }
 
 #github-commits::after {
-    content: "Commits made on Github*";
+    content: "Total Contributions*";
     position: absolute;
     bottom: 0;
     left: 0;

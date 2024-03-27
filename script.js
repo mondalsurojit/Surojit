@@ -494,15 +494,20 @@ fetch("https://api.github.com/users/mondalsurojit", requestOptions)
     .then((response) => response.json())
     .then((data) => {
         console.log(data);
-        const { public_repos, followers, public_gists } = data;
+        const { public_repos, followers } = data;
 
         document.getElementById("github-repos").innerText = public_repos;
         document.getElementById("github-followers").innerText = followers;
-        document.getElementById("github-commits").innerText = public_gists;
     })
     .catch((error) => console.error(error));
 
-
+fetch("https://github-contributions-api.deno.dev/mondalsurojit.json", requestOptions)
+    .then((response) => response.json())
+    .then((data) => {
+        const contributions = data.totalContributions;
+        document.getElementById("github-commits").innerText = contributions;
+    })
+    .catch((error) => console.error(error));
 
 let nameWrapper = document.querySelector("#name-wrapper");
 let emailWrapper = document.querySelector("#email-wrapper");
