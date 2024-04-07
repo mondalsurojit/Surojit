@@ -117,6 +117,11 @@ header button {
 _______________________________________________________________________________________________________________________________*/
 
 
+section {
+    block-size: 100vh;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
 
 main {
     padding: 0 7vw 0 7vw;
@@ -1286,6 +1291,11 @@ ________________________________________________________________________________
     height: 100vh;
     margin-top: 5vh;
     padding-top: 10vh;
+
+    scroll-snap-type: none;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scroll-margin-bottom: 80vh;
 }
 
 #why-hire-me {

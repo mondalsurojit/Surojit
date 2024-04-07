@@ -1,4 +1,5 @@
 :root {
+    color-scheme: only light;
     /* COLOR PALETTE */
     --blue1: #d4eff9;
     --blue2: #24c6dc;
@@ -269,55 +270,6 @@ input:-webkit-autofill:active {
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++⚙️👇COMPONENTS👇⚙️++++++++++++++++++++++++++++++++++++++++++++++++++++++
 _______________________________________________________________________________________________________________________________*/
 
-
-
-@keyframes glitch {
-    0% {
-        transform: translate(0 0);
-        filter: hue-rotate(0deg);
-    }
-
-    10% {
-        transform: translate(5px, 0px);
-    }
-
-    20% {
-        transform: translate(-5px, -5px);
-    }
-
-    30% {
-        transform: translate(15px, 0px);
-    }
-
-    40% {
-        transform: translate(5px, 0px);
-    }
-
-    50% {
-        transform: translate(-25x, 0px);
-    }
-
-    60% {
-        transform: translate(-50px, 0px);
-    }
-
-    70% {
-        transform: translate(0px, -20px);
-    }
-
-    80% {
-        transform: translate(-60px, -20px);
-    }
-
-    81% {
-        transform: translate(0px, 0px);
-    }
-
-    100% {
-        transform: translate(0 0);
-        filter: hue-rotate(360deg);
-    }
-}
 
 .dialog-bg {
     position: fixed;
